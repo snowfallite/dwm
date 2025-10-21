@@ -1,0 +1,35 @@
+dwmblocks.c: In function ‘main’:
+dwmblocks.c:206:25: error: passing argument 2 of ‘signal’ from incompatible pointer type [-Wincompatible-pointer-types]
+  206 |         signal(SIGTERM, termhandler);
+      |                         ^~~~~~~~~~~
+      |                         |
+      |                         void (*)(void)
+In file included from dwmblocks.c:5:
+/usr/include/signal.h:88:57: note: expected ‘__sighandler_t’ {aka ‘void (*)(int)’} but argument is of type ‘void (*)(void)’
+   88 | extern __sighandler_t signal (int __sig, __sighandler_t __handler)
+      |                                          ~~~~~~~~~~~~~~~^~~~~~~~~
+dwmblocks.c:187:6: note: ‘termhandler’ declared here
+  187 | void termhandler()
+      |      ^~~~~~~~~~~
+/usr/include/signal.h:72:16: note: ‘__sighandler_t’ declared here
+   72 | typedef void (*__sighandler_t) (int);
+      |                ^~~~~~~~~~~~~~
+dwmblocks.c:207:24: error: passing argument 2 of ‘signal’ from incompatible pointer type [-Wincompatible-pointer-types]
+  207 |         signal(SIGINT, termhandler);
+      |                        ^~~~~~~~~~~
+      |                        |
+      |                        void (*)(void)
+/usr/include/signal.h:88:57: note: expected ‘__sighandler_t’ {aka ‘void (*)(int)’} but argument is of type ‘void (*)(void)’
+   88 | extern __sighandler_t signal (int __sig, __sighandler_t __handler)
+      |                                          ~~~~~~~~~~~~~~~^~~~~~~~~
+dwmblocks.c:187:6: note: ‘termhandler’ declared here
+  187 | void termhandler()
+      |      ^~~~~~~~~~~
+/usr/include/signal.h:72:16: note: ‘__sighandler_t’ declared here
+   72 | typedef void (*__sighandler_t) (int);
+      |                ^~~~~~~~~~~~~~
+dwmblocks.c: At top level:
+dwmblocks.c:56:12: warning: ‘returnStatus’ defined but not used [-Wunused-variable]
+   56 | static int returnStatus = 0;
+      |            ^~~~~~~~~~~~
+make: *** [Makefile:20: dwmblocks] Error 1
